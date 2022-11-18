@@ -88,19 +88,46 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
-function getPasswordOptions() {
+var password = {
+  passwordLength,
+  lower,
+  upper,
+  numbers,
+  special,
 
+  // Function to prompt user for password options
+  getOptions: function () {
+    do {
+      this.passwordLength = prompt("Choose the length of your password.\n It has to be at least 10 characters but no more than 64.")
+      if (this.passwordLength < 10 || this.passwordLength > 64) {
+        alert("password should be at least 10 characters but no more than 64.");
+      }
+    } while (this.passwordLength = undefined || this.passwordLength < 10 || this.passwordLength > 64);
+
+    do {
+      this.lower = confirm("Would you like lowercase characters in your password?");
+      this.upper = confirm("Would you like Uppercase characters in your password?");
+      this.numbers = confirm("Would you like Numbers in your password?");
+      this.special = confirm("Would you like Special characters ($@%&*, etc) in your password?");
+      if (!this.special && !this.lower && !this.upper && !this.numbers) {
+        alert("You must choose at least one character type for your password!")
+      }
+    } while (!this.special && !this.lower && !this.upper && !this.numbers)// repeat if no character type was selected
+  }
 }
-
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); // The m
+}
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  return arr[getRandomIntInclusive(0, (arr.length - 1))];
 }
 
 // Function to generate password with user input
 function generatePassword() {
-
+  password.getOptions();
 }
 
 // Get references to the #generate element
