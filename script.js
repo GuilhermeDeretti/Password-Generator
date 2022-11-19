@@ -88,33 +88,40 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-var password = {
-  passwordLength,
-  lower,
-  upper,
-  numbers,
-  special,
-
-  // Function to prompt user for password options
-  getOptions: function () {
-    do {
-      this.passwordLength = prompt("Choose the length of your password.\n It has to be at least 10 characters but no more than 64.")
-      if (this.passwordLength < 10 || this.passwordLength > 64) {
-        alert("password should be at least 10 characters but no more than 64.");
-      }
-    } while (this.passwordLength = undefined || this.passwordLength < 10 || this.passwordLength > 64);
-
-    do {
-      this.lower = confirm("Would you like lowercase characters in your password?");
-      this.upper = confirm("Would you like Uppercase characters in your password?");
-      this.numbers = confirm("Would you like Numbers in your password?");
-      this.special = confirm("Would you like Special characters ($@%&*, etc) in your password?");
-      if (!this.special && !this.lower && !this.upper && !this.numbers) {
-        alert("You must choose at least one character type for your password!")
-      }
-    } while (!this.special && !this.lower && !this.upper && !this.numbers)// repeat if no character type was selected
-  }
+function getPasswordLength() {
+  passwordLength = 0;
+  do {
+    passwordLength = parseInt(prompt("Choose the length of your password.\n It has to be at least 10 characters but no more than 64."));
+    if (passwordLength == undefined || passwordLength < 10 || passwordLength > 64) {
+      alert("password should be at least 10 characters but no more than 64.");
+    }
+  } while (passwordLength == undefined || passwordLength < 10 || passwordLength > 64);
+  return passwordLength;
 }
+// Function to prompt user for password options
+function getCharOptions() {
+  mixOfChosenCharacters = [];
+  do {
+    if (confirm("Would you like lowercase characters in your password?")) {
+      mixOfChosenCharacters = mixOfChosenCharacters.concat(lowerCasedCharacters);
+    }
+    if (confirm("Would you like Uppercase characters in your password?")) {
+      mixOfChosenCharacters = mixOfChosenCharacters.concat(upperCasedCharacters);
+    }
+    if (confirm("Would you like Numbers in your password?")) {
+      mixOfChosenCharacters = mixOfChosenCharacters.concat(numericCharacters);
+    }
+    if (confirm("Would you like Special characters ($@%&*, etc) in your password?")) {
+      mixOfChosenCharacters = mixOfChosenCharacters.concat(specialCharacters);
+    }
+
+    if (mixOfChosenCharacters.length == 0) {
+      alert("You must choose at least one character type for your password!");
+    }
+  } while (mixOfChosenCharacters.length == 0)// repeat if no character type was selected
+  return mixOfChosenCharacters;
+}
+
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -127,7 +134,13 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  password.getOptions();
+  pass = "";
+  passLength = getPasswordLength()
+  passwordChosenCharacters = getCharOptions();
+  for (i = 0; i < passLength; i++) {
+    pass += getRandom(passwordChosenCharacters)
+  }
+  return pass;
 }
 
 // Get references to the #generate element
@@ -136,8 +149,7 @@ var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector('#password');
-
+  var passwordText = document.getElementById('password');
   passwordText.value = password;
 }
 
