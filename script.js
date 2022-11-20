@@ -92,10 +92,10 @@ function getPasswordLength() {
   passwordLength = 0;
   do {
     passwordLength = parseInt(prompt("Choose the length of your password.\n It has to be at least 10 characters but no more than 64."));
-    if (passwordLength == undefined || passwordLength < 10 || passwordLength > 64) {
+    if (!isFinite(passwordLength) || passwordLength < 10 || passwordLength > 64) {
       alert("password should be at least 10 characters but no more than 64.");
     }
-  } while (passwordLength == undefined || passwordLength < 10 || passwordLength > 64);
+  } while (!isFinite(passwordLength) || passwordLength < 10 || passwordLength > 64);
   return passwordLength;
 }
 // Function to prompt user for password options
