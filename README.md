@@ -3,9 +3,9 @@
 ## Description
 
 The purpose of this project is to create a password generator application, and at the same time apply some of the javascript recent studied knowledge.
-This application consists in 3 basic steps, choosing the length of the password, choosing the character types, then visualizing your the auto generated password.
+This application consists in 3 basic steps, choosing the length of the password, choosing the character types, then visualizing the auto generated password.
 
-## instalation
+## installation
 
 N/A
 
