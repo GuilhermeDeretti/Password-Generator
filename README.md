@@ -1,29 +1,36 @@
 # Password-Generator
-Password Generator
 
-create an application that an employee can use to generate a random password based on criteria they’ve selected. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code. It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
+## Description
 
-## Instructions
+The purpose of this project is to create a password generator application, and at the same time apply some of the javascript recent studied knowledge.
+This application consists in 3 basic steps, choosing the length of the password, choosing the character types, then visualizing your the auto generated password.
 
-The following image shows the web application's appearance and functionality:
-![password generator demo](./assets/05-javascript-challenge-demo.png)
+## instalation
 
+N/A
 
-* when Generate a password button is clicked
-  * Present a series of prompts for password criteria
-    * Length of password
-      * At least 10 characters but no more than 64.
-    * Character types
-      * Lowercase
-      * Uppercase
-      * Numeric
-      * Special characters ($@%&*, etc)
-  * Code validate at least one character type was selected
-  * Once prompts are answered then the password is generated and displayed written to the page
+## Usage
 
+- Initiate by selecting the option "Generate password".
+  ![Click generate password](./assets/images/first-step.png)
 
-* Repository follows best practices for file structure and naming conventions.
+- Choose the length of your password.
+  ![Select length](./assets/images/second-step.png)
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+- Select the character types.
+  ![Select character types](./assets/images/third-step.png)
 
-* Repository contains quality README file with description, screenshot, and link to deployed application.
+- At the end you will have a randomly generated password.
+  ![Get your new password](./assets/images/last-step.png)
+
+## Credits
+
+N/A
+
+## License
+
+Available under the MIT license. See the LICENSE file for more info.
+
+## Test
+
+[Deployed application](https://guilhermederetti.github.io/Password-Generator/)
