@@ -11,16 +11,16 @@ N/A
 
 ## Usage
 
-- Initiate by selecting the option "Generate password".
+- Initiate by selecting the option "Generate password".  
   ![Click generate password](./assets/images/first-step.png)
 
-- Choose the length of your password.
+- Choose the length of your password.  
   ![Select length](./assets/images/second-step.png)
 
-- Select the character types.
+- Select the character types.  
   ![Select character types](./assets/images/third-step.png)
 
-- At the end you will have a randomly generated password.
+- At the end you will have a randomly generated password.  
   ![Get your new password](./assets/images/last-step.png)
 
 ## Credits
